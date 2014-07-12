@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="red">#900</color>
+    <color name="green">#090</color>
+    <color name="blue">#009</color>
+    <color name="white">#FFF</color>
+    <color name="black">#000</color>
+    
+    <!-- 标题栏 -->
+    <color name="titlebar_bg">#FFFFFF</color>
+    <color name="titlebar_divide_line_bg">#87CEFF</color>
+    <color name="titlebar_title_text_color">#EE4000</color>
+    
+    <!-- 公用颜色 -->
+    <color name="common_page_bg">#ffffff</color>
+</resources>
