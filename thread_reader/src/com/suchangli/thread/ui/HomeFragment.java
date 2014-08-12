@@ -10,18 +10,17 @@ import android.widget.RelativeLayout;
 
 import com.suchangli.thread.R;
 
-public class HomeCenterFragment extends Fragment {
+public class HomeFragment extends Fragment {
 	
 	private View mRootView;
 	
-	public HomeCenterFragment() { 
+	public HomeFragment() { 
 		 
 	}
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-		
-		mRootView = inflater.inflate(R.layout.home_center_base_fragment, container, false);
+		mRootView = inflater.inflate(R.layout.home_fragment, container, false);
 		return mRootView;
 	}
 	

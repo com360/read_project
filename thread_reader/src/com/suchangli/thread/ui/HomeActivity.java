@@ -5,6 +5,7 @@ import android.support.v4.app.Fragment;
 import android.text.TextUtils;
 
 import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
+import com.suchangli.base.TFragmentManager;
 import com.suchangli.thread.R;
 
 public class HomeActivity extends HomeBaseActivity {
@@ -23,7 +24,7 @@ public class HomeActivity extends HomeBaseActivity {
 			mCurrentContent = getSupportFragmentManager().getFragment(
 					savedInstanceState, "mContent");
 		if (mCurrentContent == null)
-			mCurrentContent = new HomeCenterFragment();
+			mCurrentContent = getFragmentByTag("home_fragment");
 
 		// set the Above View(content fragment)
 		setContentView(R.layout.content_frame);
@@ -34,9 +35,7 @@ public class HomeActivity extends HomeBaseActivity {
 		setBehindContentView(R.layout.menu_frame);
 		getSupportFragmentManager().beginTransaction()
 				.replace(R.id.menu_frame, new HomeLeftMenuFragment()).commit();
-
-		// customize the SlidingMenu,full screen can slid
-		getSlidingMenu().setTouchModeAbove(SlidingMenu.TOUCHMODE_FULLSCREEN);
+ 
 	}
 
 	@Override
@@ -51,7 +50,10 @@ public class HomeActivity extends HomeBaseActivity {
 				.replace(R.id.content_frame, fragment).commit();
 		getSlidingMenu().showContent();
 	}
-	
+	/**
+	 * 更加tag切换响应的Fragment
+	 * @param fragmentTag
+	 */
 	public void switchContent(String fragmentTag) {
 		
 		Fragment fragment = getFragmentByTag(fragmentTag);
@@ -65,8 +67,6 @@ public class HomeActivity extends HomeBaseActivity {
 			getSlidingMenu().showContent();
 			return;
 		}
-		
-		
 		
 		mCurrentContent =  fragment;
 		getSupportFragmentManager().beginTransaction()
@@ -96,9 +96,7 @@ public class HomeActivity extends HomeBaseActivity {
 	 * @return
 	 */
 	private Fragment newFragment(String fragmentTag){
-		
-		
-		return null;
+		return TFragmentManager.getInstance().newFragment(fragmentTag);
 	}
 
 }
